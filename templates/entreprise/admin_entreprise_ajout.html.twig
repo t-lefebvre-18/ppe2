@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeEN %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+      {% if form.valide is defined %}
+{% if form.valide == true %}
+<h3 class="card-title">{{ form.messageTitre }}</h3>
+<p class="cadr-text">{{ form.message }}</p>
+<hr>
+<div class="textcenter">
+  <a href="index.php?page=adminentreprise" class="btn-event">Retour</a>
+  <a href="index.php?page=ajoutentreprise" class="btn-event">Ajouter</a>
+</div>
+  {% else %}
+  <h3 class="card-title">{{ form.messageTitre }}</h3>
+  <p class="cadr-text">{{ form.message }}</p>
+  <hr>
+  <div class="textcenter">
+    <a href="index.php?page=adminlivre" class="btn-event">Retour</a>
+    <a href="index.php?page=ajoutlivre" class="btn-event">Ajouter</a>
+  </div>
+  {% endif %}
+{% else %}
+        <h3 class="card-title">Ajout entreprise</h3>
+        <form method="post">
+
+          <div class="form-row">
+          <div class="col">
+            <!-- <label for="inputCouverture" >Saisir un nom</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputLibelle" placeholder="Saisir le nom de l'entreprise" id="inputLibelle" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+
+          <div class="col">
+            <!-- <label for="inputTitre" >Saisir un titre</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputEmail" placeholder="Saisir votre mail" id="inputEmail" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+              <div class="col">
+            <!-- <label for="inputTitre" >Saisir un titre</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputAdresse" placeholder="Saisir une adresse" id="inputAdresse" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+              <div class="col">
+            <!-- <label for="inputTitre" >Saisir un titre</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputVille" placeholder="Saisir votre siège social" id="inputVille" required="required" autofocus="autofocus">
+            <span ></span>
+          </div><div class="col">
+            <!-- <label for="inputTitre" >Saisir un titre</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputCp" placeholder="Saisir votre code postal" id="inputCp" required="required" autofocus="autofocus">
+            <span ></span>
+          </div><div class="col">
+            <!-- <label for="inputTitre" >Saisir un titre</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputPays" placeholder="Saisir votre pays" id="inputPays" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+          </div>
+          <br/>
+          <div class="form-row">
+          <div class="col">
+            <select name="inputId" id="inputId" class="form-control" required="required" autofocus="autofocus">
+                  <option selected="selected">entreprise...</option>
+                  {% for e in listee %}
+                    <option value="{{ e.id }}">{{ e.libelle }}.{{ e.email }}.{{ e.adresse }}.{{ e.ville }}.{{ e.cp }}.{{ e.pays }}</option>
+                  {% endfor %}
+                </select>
+          </div>
+          </div>
+          <br/>
+        <br>
+        <div class="textcenter">
+          <a href="index.php?page=adminentreprise" class="btn-event-sup">Annuler</a>
+          <button type="submit" class="btn-form" name="btAjouter">Ajouter</button>
+        </div>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

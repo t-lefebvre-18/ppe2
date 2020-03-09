@@ -1,0 +1,70 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeTH %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+      {% if form.valide is defined %}
+{% if form.valide == true %}
+<h3 class="card-title">{{ form.messageTitre }}</h3>
+<p class="cadr-text">{{ form.message }}</p>
+<hr>
+<div class="textcenter">
+  <a href="index.php?page=admintheme" class="btn-event">Retour</a>
+  <a href="index.php?page=ajouttheme" class="btn-event">Ajouter</a>
+</div>
+  {% else %}
+  <h3 class="card-title">{{ form.messageTitre }}</h3>
+  <p class="cadr-text">{{ form.message }}</p>
+  <hr>
+  <div class="textcenter">
+    <a href="index.php?page=admintheme" class="btn-event">Retour</a>
+    <a href="index.php?page=ajouttheme" class="btn-event">Ajouter</a>
+  </div>
+  {% endif %}
+{% else %}
+        <h3 class="card-title">Ajout thème</h3>
+        <form method="post">
+
+          <div class="form-row">
+          <div class="col">
+            <!-- <label for="inputCouverture" >Saisir un nom</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputTheme" placeholder="Saisir le Theme" id="inputLibelle" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+              <br>
+               <div class="col">
+            <!-- <label for="inputCouverture" >Saisir un nom</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputTheme" placeholder="Saisir le Theme" id="inputLibelle" required="required" autofocus="autofocus">
+            <span ></span>
+          </div>
+          </div>
+          <br/>
+          <div class="form-row">
+          <div class="col">
+            <select name="inputId" id="inputId" class="form-control" required="required" autofocus="autofocus">
+                  <option selected="selected">theme...</option>
+                  {% for w in listew %}
+                    <option value="{{ w.id }}">{{ w.libelle }}</option>
+                  {% endfor %}
+                </select>
+          </div>
+          </div>
+          <br/>
+        <br>
+        <div class="textcenter">
+          <a href="index.php?page=admintheme" class="btn-event-sup">Annuler</a>
+          <button type="submit" class="btn-form" name="btAjouter">Ajouter</button>
+        </div>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

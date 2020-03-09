@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+{% block themequizz %}active{% endblock %}
+{% block contenu %}
+
+  <div class="container">
+  <br>
+
+<div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+  <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+  <div class="lh-100">
+    <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+    <small>Depuis 2019</small>
+  </div>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<h2>Information</h2>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Thèmes récentes</h6>
+         <a type="button" class="btn btn-primary" href="admin_theme_ajout.html.twig" >Ajouter</a>
+        {% if not listeThemes is empty %}
+            {% for key,value in listeThemes %}
+              
+        
+        <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#{{ value.couleur }}"></rect><text x="50%" y="50%" fill="#{{ value.couleur }}" dy=".3em"></text></svg>
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <strong class="text-gray-dark">{{ value.libelle }}</strong>
+            <a href="#">Voir les quizz</a>
+          </div>
+          <span class="d-block">{{ value.description }}</span>
+        </div>
+      </div>
+                {% endfor %}
+            
+            {% else %}    
+                Aucun utilisateur à afficher
+            {% endif %}
+     
+      
+      
+    </div>
+
+  </div>
+
+{% endblock %}

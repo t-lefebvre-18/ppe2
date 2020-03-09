@@ -1,0 +1,268 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+{% block navhome %}active{% endblock %}
+{% block contenu %}
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+            <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+            <div class="lh-100">
+                <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+                <small>Depuis 2019</small>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Simpléduc</h2>
+                <p>L’entreprise Simpléduc mobilise des développeurs afin de réaliser un outil de gestion de projets.
+                    Celui-ci a pour objectif de suivre en temps réel les projets d’entreprise ainsi que les équipes qui les
+                    réalisent. Un des critères principaux est la réalisation d’un outil simple, accessible via des
+                    WebServices permettant la consultation des données sur Mobile (Android). </p>
+
+            </div>
+            <div class="col-md-6">
+                <h2>InnovAnglais</h2>
+                <p>Innov’Anglais est une entreprise Lilloise (59000) spécialisée dans l’apprentissage de la langue
+                    anglaise. Son objectif est de proposer à ses clients des outils innovants et pédagogiques. Exemple :
+                    un site internet permettant de mémoriser efficacement le vocabulaire en proposant des thèmes
+                    variés et le passage de tests </p>
+
+            </div>
+        </div>
+
+        <hr>
+        <h2>Vos quizz</h2>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="my-3 p-3 bg-white rounded shadow-sm">
+                    <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+                    <div class="media text-muted pt-3">
+                        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">Par Tom</strong>
+                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                    </div>
+
+                    <small class="d-block text-right mt-3">
+                        <a href="#">Voir le quizz</a>
+                        <a href="#" class="concomQ mgl-2">Continuer le quizz</a>
+                        <a href="#" class="suprimerQ mgl-2">Suprimer</a>
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="my-3 p-3 bg-white rounded shadow-sm">
+                    <h6 class="border-bottom border-gray pb-2 mb-0">Les couleurs</h6>
+                    <div class="media text-muted pt-3">
+                        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">Par Theo</strong>
+                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                    </div>
+
+                    <small class="d-block text-right mt-3">
+                        <a href="#">Voir le quizz</a>
+                        <a href="#" class="concomQ mgl-2">Commencer le quizz</a>
+                        <a href="#" class="suprimerQ mgl-2">Suprimer</a>
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="my-3 p-3 bg-white rounded shadow-sm">
+                    <h6 class="border-bottom border-gray pb-2 mb-0">Les villes</h6>
+                    <div class="media text-muted pt-3">
+                        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".4em">32x32</text></svg>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">Par Theo</strong>
+                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                    </div>
+
+                    <small class="d-block text-right mt-3">
+                        <a href="#">Voir le quizz</a>
+                        <a href="#" class="concomQ mgl-2">Commencer le quizz</a>
+                        <a href="#" class="suprimerQ mgl-2">Suprimer</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <h2>Information</h2>
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Thèmes récentes</h6>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">Les villes</strong>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">La nouriture</strong>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">Les tenue</strong>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="#">Toutes les thèmes</a>
+            </small>
+        </div>
+
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Plan d'affaires en anglais</strong>
+                        <a href="#">Ajouter le quizz</a>
+                    </div>
+                    <span class="d-block">il y à 5 min</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Créer un CV en anglais</strong>
+                        <a href="#">Ajouter le quizz</a>
+                    </div>
+                    <span class="d-block">il y à 2 mois</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Présentez-vous à un public en anglais</strong>
+                        <a href="#">Ajouter le quizz</a>
+                    </div>
+                    <span class="d-block">il y à 1 ans</span>
+                </div>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="#">Toutes les quizz</a>
+            </small>
+        </div>
+
+        <hr>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Free</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Aventage 1</li>
+                        <li>Aventage 2</li>
+                        <li>Aventage 3</li>
+                        <li>Aventage 4</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Pro</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Aventage 1</li>
+                        <li>Aventage 2</li>
+                        <li>Aventage 3</li>
+                        <li>Aventage 4</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Enterprise</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Aventage 1</li>
+                        <li>Aventage 2</li>
+                        <li>Aventage 3</li>
+                        <li>Aventage 4</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <hr>
+        <h2>Quizz</h2>
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Question n°1</h6>
+
+            <div class="media text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-125">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="reply1" name="reply" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="reply2" name="reply" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="reply3" name="reply" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="reply4" name="reply" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                    </div>
+                </div>
+
+            </div>
+            <h6 class="border-bottom border-gray pb-2 mb-0">Quizz sur les animeux</h6>
+
+            <small class="d-block text-right mt-3">
+                <a href="#">Toutes les thèmes</a>
+            </small>
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}

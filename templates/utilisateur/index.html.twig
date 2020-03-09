@@ -1,0 +1,176 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+{% block contenu %}
+
+  <div class="container">
+  <br>
+
+<div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+  <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+  <div class="lh-100">
+    <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+    <small>Depuis 2019</small>
+  </div>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<h2>Information</h2>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">Statistique</h6>
+      
+   <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1542" height="651" style="display: block; width: 1542px; height: 651px;"></canvas>
+      
+    </div>
+
+<hr>
+<div class="row">
+    
+  <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125 border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°1</strong>
+          <span class="note">8/10</span>
+        </p>
+      </div>
+    </div>
+  </div>
+     <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125 border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°2</strong>
+          <span class="note">4/10</span>
+        </p>
+      </div>
+    </div>
+  </div> 
+    <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125 border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°3</strong>
+          <span class="note">6/10</span>
+        </p>
+      </div>
+    </div>
+  </div> 
+    <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125 border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°4</strong>
+          <span class="note">9/10</span>
+        </p>
+      </div>
+    </div>
+  </div> 
+    <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125 border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°5</strong>
+          <span class="note">4/10</span>
+        </p>
+      </div>
+    </div>
+  </div> 
+    <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125  border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°6</strong>
+          <span class="note">2/10</span>
+        </p>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-2">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">les Animaux</h6>
+      <div class="media text-muted pt-3">
+       <p class="media-body pb-3 mb-0 small lh-125  border-gray">
+          <strong class="d-block text-gray-dark">Quizz n°7</strong>
+          <span class="note">7/10</span>
+        </p>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+
+
+
+
+</div>
+
+  </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        /* globals Chart:false, feather:false */
+
+(function () {
+  'use strict'
+
+  feather.replace()
+
+  // Graphs
+  var ctx = document.getElementById('myChart')
+  // eslint-disable-next-line no-unused-vars
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+        'Quizz N°1',
+        'Quizz N°2',
+        'Quizz N°3',
+        'Quizz N°4',
+        'Quizz N°5',
+        'Quizz N°6',
+        'Quizz N°7'
+      ],
+      datasets: [{
+        data: [
+          8,
+          4,
+          6,
+          9,
+          4,
+          2,
+          5
+        ],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false
+          }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  })
+}())
+    </script>
+{% endblock %}

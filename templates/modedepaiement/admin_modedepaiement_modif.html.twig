@@ -1,0 +1,56 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeMO %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+        {% if form.entreprise is defined %}
+          {% if form.entreprise != null %}
+            <h3 class="card-title">modifier mode de paiement</h3>
+            <form action="index.php?page=modifmodedepaiement" method="post">
+
+              <div class="form-group">
+                <input type="text" class="form-control form-control-ajout" name="inputLibelle" id="inputLibelle" placeholder="{{ form.modedepaiement.libelle }}" value="{{ form.modedepaiement.libelle }}">
+              </div>
+              <br>
+              <div class="textcenter">
+              <input type="hidden" name="id" value="{{ form.modedepaiement.id }}"/>
+                <a href="index.php?page=adminmodedepaiement" class="btn-event-sup">Annuler</a>
+                <button type="submit" class="btn-form" name="btModifier">Modifier</button>
+              </div>
+            </form>
+          {% else %}
+            <h3 class="card-title">{{ form.messageTitre }}</h3>
+            <p class="cadr-text">{{ form.message }}</p>
+            <hr>
+            <div class="textcenter">
+              <a href="index.php?page=adminmodedepaiement" class="btn-event">Retour</a>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if form.valide == true %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminmodedepaiement" class="btn-event">Retour</a>
+              </div>
+          {% else %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminmodedepaiement" class="btn-event">Retour</a>
+              </div>
+          {% endif %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}

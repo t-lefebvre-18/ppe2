@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Abonements{% endblock %}
+
+{% block contenu %}
+    
+    
+  <div class="container">
+  <br>
+<div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+  <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+  <div class="lh-100">
+    <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+    <small>Depuis 2019</small>
+  </div>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<h2>Information</h2>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Liste des Abonements</h6>
+
+         <a type="button" class="btn btn-primary" href="admin_abonement_ajout.html.twig" >Ajouter</a>
+             <table class="table " id="myTable">
+  <thead>
+    <tr >
+      <th scope="col" onclick="sortTable(0)"> <span class="cursorpointer">Référence <i class="fas fa-sort"></i></span> </th>
+      <th scope="col" onclick="sortTable(1)"> <span class="cursorpointer">Libelle <i class="fas fa-sort"></i></span> </th>
+      <th scope="col" onclick="sortTable(2)"> <span class="cursorpointer">Prix <i class="fas fa-sort"></i></span> </th>
+      <th scope="col">Modifier</th>
+    </tr>
+  </thead>          
+  <tbody>
+      
+        {% if not listeAbonement is empty %}
+            {% for key,value in listeAbonement %}
+              
+            <tr>
+      <td>{{ value.id }}</td>
+      <td>{{ value.libelle }}</td>
+      <td>{{ value.prix }} €</td>
+      <td> <a href="admin_abonement_modif.html.twig">modifier</a></td>
+      
+    </tr>
+      
+      {% endfor %}
+            {% else %}   
+                <tr>
+      <th scope="row" colspan="7">Aucun abonement à afficher</th>
+    </tr>
+            {% endif %}
+     
+        </tbody>
+</table>
+          
+      
+    </div>
+
+  </div>
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+
+{% endblock %}

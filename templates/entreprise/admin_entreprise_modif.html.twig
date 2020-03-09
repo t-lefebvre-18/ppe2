@@ -1,0 +1,83 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeEN %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+        {% if form.entreprise is defined %}
+          {% if form.entreprise != null %}
+            <h3 class="card-title">modifier entreprise</h3>
+            <form action="index.php?page=modifentreprise" method="post">
+
+              <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputLibelle" id="inputLibelle" placeholder="{{ form.entreprise.libelle }}" value="{{ form.entreprise.libelle }}">
+              </div>
+              <br>
+               <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputEmail" id="inputEmail" placeholder="{{ form.entreprise.email }}" value="{{ form.entreprise.email }}">
+              </div>
+              <br>
+               <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputAdresse" id="inputAdresse" placeholder="{{ form.entreprise.adresse }}" value="{{ form.entreprise.adresse }}">
+              </div>
+              <br>
+               <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputVille" id="inputVille" placeholder="{{ form.entreprise.ville }}" value="{{ form.entreprise.ville }}">
+              </div>
+              <br>
+               <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputCp" id="inputCp" placeholder="{{ form.entreprise.cp }}" value="{{ form.entreprise.cp }}">
+              </div>
+              <br>
+               <div class="form-group">
+              
+                <input type="text" class="form-control form-control-ajout" name="inputPays" id="inputPays" placeholder="{{ form.entreprise.pays }}" value="{{ form.entreprise.pays }}">
+              </div>
+              <br>
+              
+              <div class="textcenter">
+              <input type="hidden" name="id" value="{{ form.entreprise.id }}"/>
+                <a href="index.php?page=adminentreprise" class="btn-event-sup">Annuler</a>
+                <button type="submit" class="btn-form" name="btModifier">Modifier</button>
+              </div>
+            </form>
+          {% else %}
+            <h3 class="card-title">{{ form.messageTitre }}</h3>
+            <p class="cadr-text">{{ form.message }}</p>
+            <hr>
+            <div class="textcenter">
+              <a href="index.php?page=adminentreprise" class="btn-event">Retour</a>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if form.valide == true %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminentreprise" class="btn-event">Retour</a>
+              </div>
+          {% else %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminentreprise" class="btn-event">Retour</a>
+              </div>
+          {% endif %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}

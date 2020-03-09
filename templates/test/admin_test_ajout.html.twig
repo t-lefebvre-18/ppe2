@@ -1,0 +1,63 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeTE %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+      {% if form.valide is defined %}
+{% if form.valide == true %}
+<h3 class="card-title">{{ form.messageTitre }}</h3>
+<p class="cadr-text">{{ form.message }}</p>
+<hr>
+<div class="textcenter">
+  <a href="index.php?page=admintest" class="btn-event">Retour</a>
+  <a href="index.php?page=ajouttest" class="btn-event">Ajouter</a>
+</div>
+  {% else %}
+  <h3 class="card-title">{{ form.messageTitre }}</h3>
+  <p class="cadr-text">{{ form.message }}</p>
+  <hr>
+  <div class="textcenter">
+    <a href="index.php?page=admintest" class="btn-event">Retour</a>
+    <a href="index.php?page=ajouttest" class="btn-event">Ajouter</a>
+  </div>
+  {% endif %}
+{% else %}
+        <h3 class="card-title">Ajout test</h3>
+        <form method="post">
+          <div class="form-row">
+          <div class="col">
+            <!-- <label for="inputCouverture" >Saisir un nom</label> -->
+            <input class="form-control form-control-ajout" type="text" name="inputNiveaux" placeholder="Saisir le niveaux du test" id="inputNiveaux" required="required" autofocus="autofocus">
+            <span></span>
+          </div>
+          </div>
+          <br/>
+          <div class="form-row">
+          <div class="col">
+            <select name="inputId" id="inputId" class="form-control" required="required" autofocus="autofocus">
+                  <option selected="selected" disabled>Niveaux...</option>
+                  {% for t in listet %}
+                    <option value="{{ t.id }}">{{ t.libelle }}</option>
+                  {% endfor %}
+                </select>
+          </div>
+          </div>
+          <br/>
+        <br>
+        <div class="textcenter">
+          <a href="index.php?page=admintest" class="btn-event-sup">Annuler</a>
+          <button type="submit" class="btn-form" name="btAjouter">Ajouter</button>
+        </div>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

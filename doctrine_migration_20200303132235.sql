@@ -1,0 +1,33 @@
+-- Doctrine Migration File Generated on 2020-03-03 13:22:35
+
+-- Version 20200303130133
+ALTER TABLE question ADD reponse_id INT DEFAULT NULL;
+ALTER TABLE question ADD CONSTRAINT FK_B6F7494ECF18BB82 FOREIGN KEY (reponse_id) REFERENCES reponse (id);
+CREATE INDEX IDX_B6F7494ECF18BB82 ON question (reponse_id);
+INSERT INTO migration_versions (version, executed_at) VALUES ('20200303130133', CURRENT_TIMESTAMP);
+
+-- Version 20200303131618
+ALTER TABLE inscription_typeinscription DROP FOREIGN KEY FK_E6BA6DB95DAC5993;
+ALTER TABLE question DROP FOREIGN KEY FK_B6F7494ECF18BB82;
+ALTER TABLE inscription_typeinscription DROP FOREIGN KEY FK_E6BA6DB98211AE88;
+ALTER TABLE inscription DROP FOREIGN KEY FK_5E90F6D6B981C689;
+DROP TABLE inscription;
+DROP TABLE inscription_typeinscription;
+DROP TABLE question;
+DROP TABLE reponse;
+DROP TABLE typeinscription;
+DROP TABLE utilisateur;
+INSERT INTO migration_versions (version, executed_at) VALUES ('20200303131618', CURRENT_TIMESTAMP);
+
+-- Version 20200303131955
+ALTER TABLE inscription_typeinscription DROP FOREIGN KEY FK_E6BA6DB95DAC5993;
+ALTER TABLE question DROP FOREIGN KEY FK_B6F7494ECF18BB82;
+ALTER TABLE inscription_typeinscription DROP FOREIGN KEY FK_E6BA6DB98211AE88;
+ALTER TABLE inscription DROP FOREIGN KEY FK_5E90F6D6B981C689;
+DROP TABLE inscription;
+DROP TABLE inscription_typeinscription;
+DROP TABLE question;
+DROP TABLE reponse;
+DROP TABLE typeinscription;
+DROP TABLE utilisateur;
+INSERT INTO migration_versions (version, executed_at) VALUES ('20200303131955', CURRENT_TIMESTAMP);

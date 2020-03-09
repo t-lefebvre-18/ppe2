@@ -1,0 +1,61 @@
+
+
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeVO %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+        {% if form.vocabulaire is defined %}
+          {% if form.vocabulaire != null %}
+            <h3 class="card-title">modifier vocabulaire</h3>
+            <form action="index.php?page=modifvocabulaire" method="post">
+
+              <div class="form-group">
+                <input type="text" class="form-control form-control-ajout" name="inputLibelle" id="inputLibelle" placeholder="{{ form.vocabulaire.libelle }}" value="{{ form.vocabulaire.libelle }}">
+              </div>
+              <br>  
+              <div class="form-group">
+                <input type="text" class="form-control form-control-ajout" name="inputCategorie" id="inputCategorie" placeholder="{{ form.vocabulaire.categorie }}" value="{{ form.vocabulaire.categorie }}">
+              </div>
+              <br>
+              <div class="textcenter">
+              <input type="hidden" name="id" value="{{ form.traduction.id }}"/>
+                <a href="index.php?page=adminvocabulaire" class="btn-event-sup">Annuler</a>
+                <button type="submit" class="btn-form" name="btModifier">Modifier</button>
+              </div>
+            </form>
+          {% else %}
+            <h3 class="card-title">{{ form.messageTitre }}</h3>
+            <p class="cadr-text">{{ form.message }}</p>
+            <hr>
+            <div class="textcenter">
+              <a href="index.php?page=adminvocabulaire" class="btn-event">Retour</a>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if form.valide == true %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminvocabulaire" class="btn-event">Retour</a>
+              </div>
+          {% else %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=adminvocabulaire" class="btn-event">Retour</a>
+              </div>
+          {% endif %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}

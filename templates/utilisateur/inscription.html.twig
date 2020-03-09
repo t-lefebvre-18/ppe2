@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+{% block contenu %}
+    
+    
+  <div class="container">
+  <br>
+
+<div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+  <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+  <div class="lh-100">
+    <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+    <small>Depuis 2019</small>
+  </div>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<h2>Information</h2>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Thèmes récentes</h6>
+
+
+
+         <form class="needs-validation" novalidate="">
+                 <div class="row">
+                   <div class="col-md-6 mb-3">
+                     <label for="firstName">Prénom</label>
+                     <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                     <div class="invalid-feedback">
+                       Un prénom valide est requis.
+                     </div>
+                   </div>
+                   <div class="col-md-6 mb-3">
+                     <label for="lastName">Nom de famille</label>
+                     <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                     <div class="invalid-feedback">
+                       Un nom de famille valide est requis.
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="mb-3">
+                   <label for="email">Email</label>
+                   <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                   <div class="invalid-feedback">
+                     Veuillez saisir une adresse e-mail valide.
+                   </div>
+                 </div>
+
+                 <div class="row">
+                   <div class="col-md-6 mb-3">
+                     <label for="password">Mots de passe</label>
+                     <input type="password" class="form-control" id="password" placeholder="" value="" required="">
+                     <div class="invalid-feedback">
+                       Un Mots de passe valide est requis.
+                     </div>
+                   </div>
+                   <div class="col-md-6 mb-3">
+                     <label for="password2">Confirmer Mots de passe</label>
+                     <input type="password" class="form-control" id="password2" placeholder="" value="" required="">
+                     <div class="invalid-feedback">
+                       Un Mots de passe valide est requis.
+                     </div>
+                   </div>
+                 </div>
+
+                 <hr class="mb-4">
+
+                 <h4 class="mb-3">Payment</h4>
+
+                 <div class="d-block my-3">
+                   
+                   <div class="custom-control custom-radio">
+                     <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                     <label class="custom-control-label" for="paypal"></label>
+                     <img class="mr-3" src="../img/paypal.png" alt="" width="80" height="25">
+                   </div>
+                     <br>
+                     <div class="custom-control custom-radio">
+                     <input id="mastercard" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                     <label class="custom-control-label" for="mastercard"></label>
+                     <img class="mr-3" src="../img/mastercard.png" alt="" width="50" height="30">
+                   </div>
+                     <br>
+                     <div class="custom-control custom-radio">
+                     <input id="visa" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                     <label class="custom-control-label" for="visa"></label>
+                     <img class="mr-3" src="../img/visa.png" alt="" width="75" height="30">
+                   </div>
+                 </div>
+                 
+                 <hr class="mb-4">
+                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+               </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

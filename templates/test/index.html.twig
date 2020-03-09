@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Abonements{% endblock %}
+
+{% block contenu %}
+
+  <div class="container">
+  <br>
+<div class="alert alert-red alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+  <img class="mr-3" src="../img/notificationB.png" alt="" width="48" height="48">
+  <div class="lh-100">
+    <h6 class="mb-0 text-black lh-100">Innov Anglais disponible sur vos téléphones. </h6>
+    <small>Depuis 2019</small>
+  </div>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<h2>Information</h2>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Liste des tests</h6>
+         <a type="button" class="btn btn-primary" href="{{path('test_ajout')}}" >Ajouter</a>
+             <table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">Référence</th>
+      <th scope="col">niveaux</th>
+       <th scope="col">modifier</th>
+        <th scope="col">supprimer</th>
+     
+      
+    </tr>
+  </thead>          
+  <tbody>
+        {% if not listeTest is empty %}
+            {% for key,value in listeTest %}
+              
+            <tr>
+      <th scope="row">{{ value.id }}</th>
+      <td>{{ value.niveaux }}</td>
+      <td> <a href="admin_test_modif.html.twig">modifier</a></td>
+        <td> <a href="">supprimer</a></td>
+  
+    </tr>
+      
+      {% endfor %}
+            {% else %}   
+                <tr>
+      <th scope="row" colspan="2">Aucun abonement à afficher</th>
+    </tr>
+            {% endif %}
+     
+        </tbody>
+</table>
+          
+      
+    </div>
+
+  </div>
+
+{% endblock %}

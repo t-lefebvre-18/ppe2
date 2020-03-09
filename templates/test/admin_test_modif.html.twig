@@ -1,0 +1,56 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+  {{ parent() }}
+
+{% endblock %}
+{% block activeTE %}active{% endblock %}
+{% block contenu %}
+
+  <div class="centerdiv">
+    <div class="card box-shadow card-size">
+      <div class="card-body">
+        {% if form.test is defined %}
+          {% if form.test != null %}
+            <h3 class="card-title">modifier test</h3>
+            <form action="index.php?page=modiftest" method="post">
+
+              <div class="form-group">
+                <input type="text" class="form-control form-control-ajout" name="inputNiveaux" id="inputNiveaux" placeholder="{{ form.test.niveaux }}" value="{{ form.test.niveaux }}">
+              </div>
+              <br>
+              <div class="textcenter">
+              <input type="hidden" name="id" value="{{ form.niveaux.id }}"/>
+                <a href="index.php?page=admintest" class="btn-event-sup">Annuler</a>
+                <button type="submit" class="btn-form" name="btModifier">Modifier</button>
+              </div>
+            </form>
+          {% else %}
+            <h3 class="card-title">{{ form.messageTitre }}</h3>
+            <p class="cadr-text">{{ form.message }}</p>
+            <hr>
+            <div class="textcenter">
+              <a href="index.php?page=admintest" class="btn-event">Retour</a>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if form.valide == true %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=admintest" class="btn-event">Retour</a>
+              </div>
+          {% else %}
+              <h3 class="card-title">{{ form.messageTitre }}</h3>
+              <p class="cadr-text">{{ form.message }}</p>
+              <hr>
+              <div class="textcenter">
+                <a href="index.php?page=admintest" class="btn-event">Retour</a>
+              </div>
+          {% endif %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
