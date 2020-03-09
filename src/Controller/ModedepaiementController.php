@@ -55,6 +55,31 @@ class ModedepaiementController extends AbstractController
         return $this->render('modedepaiement/index.html.twig', array( 'form' => $form->createView(),));
     }
     
+     /**
+     * @Route("/entreprise_modif", name="entreprise_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Modedepaiement::class); 
+      
+      $modedepaiement = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($modedepaiement)         
+              ->add('libelle', TextType::class)           
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($modedepaiement);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_modedepaiement_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
+    
     
     
     

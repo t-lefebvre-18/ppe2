@@ -55,6 +55,32 @@ class AbonementController extends AbstractController
     }
     
     
+       /**
+     * @Route("/abonement_modif", name="abonement_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Abonement::class); 
+      
+      $abonement = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($abonement)         
+              ->add('libelle', TextType::class)           
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($abonement);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_abonement_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
+    
+    
     
     
 }

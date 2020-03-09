@@ -27,11 +27,7 @@ class ThemeController extends AbstractController
         ]);
     }
     
-    
-    
-    
-    
-    
+   
     /**    
       * @Route("/theme_ajout", name="theme_ajout")  
      */   
@@ -46,9 +42,57 @@ class ThemeController extends AbstractController
                 ->getForm();    
         return $this->render('utilisateur/ajout.html.twig', array(          
             'form' => $form->createView(),     
-            ));    
+            ));  
+        
+        if ($request->isMethod('POST')){            
+            $form -> handleRequest ($request);            
+            if($form->isValid()){              
+                $em = $this->getDoctrine()->getManager();              
+                $em->persist($theme);              
+                $em->flush();            
+                
+            } 
+            
+           }
+       
+           
+              $repository = $this->getDoctrine()->getManager()->getRepository(Theme::class);
+        
+        $listet = $repository->findAll();
+        return $this->render('test/admin_theme_ajout.html.twig', array( 'form' => $form->createView(),
+            'listet' => $listet, ));
+        
         
     }
+    
+    
+       /**
+     * @Route("/entreprise_modif", name="entreprise_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Theme::class); 
+      
+      $theme = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($theme)         
+              ->add('nom', TextType::class)
+              ->add('prenom', TextType::class)    
+              ->add('email', TextType::class)        
+              ->add('mdp', DateType::class)          
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($theme);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_theme_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
    
     
     

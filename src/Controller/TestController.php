@@ -58,13 +58,31 @@ class TestController extends AbstractController
         return $this->render('test/admin_test_ajout.html.twig', array( 'form' => $form->createView(),
             'listet' => $listet, ));
     }
-    
-    
-    
-    
-    
-    
-    
+   
+       /**
+     * @Route("/test_modif", name="test_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Theme::class); 
+      
+      $theme = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($theme)         
+              ->add('niveaux', TextType::class)           
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($utilisateur);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_test_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
     
     
 }

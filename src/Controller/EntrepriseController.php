@@ -53,7 +53,43 @@ class EntrepriseController extends AbstractController
            }
         
         return $this->render('entreprise/index.html.twig', array( 'form' => $form->createView(),));
-    }    
+    }
+
+     /**
+     * @Route("/entreprise_modif", name="entreprise_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Entreprise::class); 
+      
+      $entreprise = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($entreprise)         
+              ->add('libelle', TextType::class)           
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($entreprise);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_entreprise_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
+
+
+
+
+
+
+
+
+
+
+    
 }
 
 

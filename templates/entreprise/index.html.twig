@@ -20,7 +20,7 @@
 <h2>Information</h2>
     <div class="my-3 p-3 bg-white rounded shadow-sm">
          <h6 class="border-bottom border-gray pb-2 mb-0">Liste des entreprises</h6>
-         <a type="button" class="btn btn-primary" href="admin_entreprise_ajout.html.twig" >Ajouter</a>
+         <a type="button" class="btn btn-primary" href="{{path('entreprise_ajout')}}">Ajouter</a>
              <table class="table " id="myTable">
   <thead>
     <tr >
@@ -47,7 +47,7 @@
          <td>{{ value.ville }}</td>
           <td>{{ value.cp }}</td>
            <td>{{ value.pays }}</td>
-           <td><a href="admin_entreprise_modif.html.twig">modifier</a></td>
+           <td><a href="{{path('entreprise_modif')}}">modifier</a></td>
     </tr>
       
       {% endfor %}

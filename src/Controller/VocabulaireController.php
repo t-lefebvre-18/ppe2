@@ -57,6 +57,34 @@ class VocabulaireController extends AbstractController
     }
     
     
+    /**
+     * @Route("/vocabulaire_modif", name="vocabulaire_modif")
+     */
+     public function modifier(Request $request)    {   
+      $repository = $this->getDoctrine()->getManager()->getRepository(Vocabulaire::class); 
+      
+      $vocabulaire = $repository->find($request->get('id'));  
+      
+      $form = $this->createFormBuilder($vocabulaire)         
+              ->add('libelle', TextType::class)
+              ->add('categorie', TextType::class)          
+              ->add('save', SubmitType::class, array('label' => 'Modifier'))      
+              ->getForm();      
+      
+      if ($request->isMethod('POST')){         
+                  $form -> handleRequest ($request);         
+                  if($form->isValid()){          
+                      $em = $this->getDoctrine()->getManager();      
+                      $em->persist($vocabulaire);           
+                      $em->flush();       
+                      }     
+                      
+                  }       
+                      return $this->render('utilisateur/admin_vocabulaire_modif.html.twig', ['form'=>$form->createView()]);   
+                      }
+   
+    
+    
     
     
     
